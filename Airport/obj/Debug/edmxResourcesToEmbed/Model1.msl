@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AIRPROTModelStoreContainer" CdmEntityContainer="AIRPROTEntities">
+    <EntitySetMapping Name="ADMINLOG_">
+      <EntityTypeMapping TypeName="AIRPROTModel.ADMINLOG_">
+        <MappingFragment StoreEntitySet="ADMINLOG_">
+          <ScalarProperty Name="USERNAME_" ColumnName="USERNAME_" />
+          <ScalarProperty Name="PASSWORD_" ColumnName="PASSWORD_" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AIRPLANs">
+      <EntityTypeMapping TypeName="AIRPROTModel.AIRPLAN">
+        <MappingFragment StoreEntitySet="AIRPLAN">
+          <ScalarProperty Name="ID_A" ColumnName="ID_A" />
+          <ScalarProperty Name="NAME_A" ColumnName="NAME_A" />
+          <ScalarProperty Name="MODEL" ColumnName="MODEL" />
+          <ScalarProperty Name="ID_AP" ColumnName="ID_AP" />
+          <ScalarProperty Name="ID_P" ColumnName="ID_P" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AIRPORTs">
+      <EntityTypeMapping TypeName="AIRPROTModel.AIRPORT">
+        <MappingFragment StoreEntitySet="AIRPORT">
+          <ScalarProperty Name="ID_AP" ColumnName="ID_AP" />
+          <ScalarProperty Name="NAME_AP" ColumnName="NAME_AP" />
+          <ScalarProperty Name="ADDRES" ColumnName="ADDRES" />
+          <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PASSENGER1">
+      <EntityTypeMapping TypeName="AIRPROTModel.PASSENGER1">
+        <MappingFragment StoreEntitySet="PASSENGER1">
+          <ScalarProperty Name="ID_PA" ColumnName="ID_PA" />
+          <ScalarProperty Name="NAME_" ColumnName="NAME_" />
+          <ScalarProperty Name="AGE" ColumnName="AGE" />
+          <ScalarProperty Name="GENDER" ColumnName="GENDER" />
+          <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+          <ScalarProperty Name="ID_F" ColumnName="ID_F" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PILOTS">
+      <EntityTypeMapping TypeName="AIRPROTModel.PILOT">
+        <MappingFragment StoreEntitySet="PILOTS">
+          <ScalarProperty Name="ID_P" ColumnName="ID_P" />
+          <ScalarProperty Name="NAME_F" ColumnName="NAME_F" />
+          <ScalarProperty Name="NAME_L" ColumnName="NAME_L" />
+          <ScalarProperty Name="DOF" ColumnName="DOF" />
+          <ScalarProperty Name="EMPDATE" ColumnName="EMPDATE" />
+          <ScalarProperty Name="ID_AP" ColumnName="ID_AP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FLIGHTS">
+      <EntityTypeMapping TypeName="AIRPROTModel.FLIGHT">
+        <MappingFragment StoreEntitySet="FLIGHTS">
+          <ScalarProperty Name="DATE_A" ColumnName="DATE_A" />
+          <ScalarProperty Name="DATE_D" ColumnName="DATE_D" />
+          <ScalarProperty Name="ID_A" ColumnName="ID_A" />
+          <ScalarProperty Name="ID_F" ColumnName="ID_F" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

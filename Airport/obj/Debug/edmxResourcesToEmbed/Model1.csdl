@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AIRPROTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ADMINLOG_">
+    <Key>
+      <PropertyRef Name="USERNAME_" />
+    </Key>
+    <Property Name="USERNAME_" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PASSWORD_" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AIRPLAN">
+    <Key>
+      <PropertyRef Name="ID_A" />
+    </Key>
+    <Property Name="ID_A" Type="Int32" Nullable="false" />
+    <Property Name="NAME_A" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="MODEL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ID_AP" Type="Int32" />
+    <Property Name="ID_P" Type="Int32" />
+    <NavigationProperty Name="AIRPORT" Relationship="Self.FK__AIRPLAN__ID_AP__3C69FB99" FromRole="AIRPLAN" ToRole="AIRPORT" />
+    <NavigationProperty Name="PILOT" Relationship="Self.FK__AIRPLAN__ID_P__3D5E1FD2" FromRole="AIRPLAN" ToRole="PILOTS" />
+    <NavigationProperty Name="FLIGHTS" Relationship="AIRPROTModel.FK__FLIGHTS__ID_A__403A8C7D" FromRole="AIRPLAN" ToRole="FLIGHT" />
+  </EntityType>
+  <EntityType Name="AIRPORT">
+    <Key>
+      <PropertyRef Name="ID_AP" />
+    </Key>
+    <Property Name="ID_AP" Type="Int32" Nullable="false" />
+    <Property Name="NAME_AP" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ADDRES" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="COUNTRY" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="AIRPLANs" Relationship="Self.FK__AIRPLAN__ID_AP__3C69FB99" FromRole="AIRPORT" ToRole="AIRPLAN" />
+    <NavigationProperty Name="PILOTS" Relationship="Self.FK__PILOTS__ID_AP__398D8EEE" FromRole="AIRPORT" ToRole="PILOTS" />
+  </EntityType>
+  <EntityType Name="PASSENGER1">
+    <Key>
+      <PropertyRef Name="ID_PA" />
+    </Key>
+    <Property Name="ID_PA" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NAME_" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="AGE" Type="Int32" />
+    <Property Name="GENDER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PHONE" Type="Int32" />
+    <Property Name="ID_F" Type="Int32" />
+    <NavigationProperty Name="FLIGHT" Relationship="AIRPROTModel.FK__PASSENGER1__ID_F__4316F928" FromRole="PASSENGER1" ToRole="FLIGHT" />
+  </EntityType>
+  <EntityType Name="PILOT">
+    <Key>
+      <PropertyRef Name="ID_P" />
+    </Key>
+    <Property Name="ID_P" Type="Int32" Nullable="false" />
+    <Property Name="NAME_F" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="NAME_L" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="DOF" Type="DateTime" Precision="0" />
+    <Property Name="EMPDATE" Type="DateTime" Precision="0" />
+    <Property Name="ID_AP" Type="Int32" />
+    <NavigationProperty Name="AIRPLANs" Relationship="Self.FK__AIRPLAN__ID_P__3D5E1FD2" FromRole="PILOTS" ToRole="AIRPLAN" />
+    <NavigationProperty Name="AIRPORT" Relationship="Self.FK__PILOTS__ID_AP__398D8EEE" FromRole="PILOTS" ToRole="AIRPORT" />
+  </EntityType>
+  <Association Name="FK__AIRPLAN__ID_AP__3C69FB99">
+    <End Role="AIRPORT" Type="Self.AIRPORT" Multiplicity="0..1" />
+    <End Role="AIRPLAN" Type="Self.AIRPLAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AIRPORT">
+        <PropertyRef Name="ID_AP" />
+      </Principal>
+      <Dependent Role="AIRPLAN">
+        <PropertyRef Name="ID_AP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AIRPLAN__ID_P__3D5E1FD2">
+    <End Role="PILOTS" Type="Self.PILOT" Multiplicity="0..1" />
+    <End Role="AIRPLAN" Type="Self.AIRPLAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PILOTS">
+        <PropertyRef Name="ID_P" />
+      </Principal>
+      <Dependent Role="AIRPLAN">
+        <PropertyRef Name="ID_P" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PILOTS__ID_AP__398D8EEE">
+    <End Role="AIRPORT" Type="Self.AIRPORT" Multiplicity="0..1" />
+    <End Role="PILOTS" Type="Self.PILOT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AIRPORT">
+        <PropertyRef Name="ID_AP" />
+      </Principal>
+      <Dependent Role="PILOTS">
+        <PropertyRef Name="ID_AP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AIRPROTEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ADMINLOG_" EntityType="Self.ADMINLOG_" />
+    <EntitySet Name="AIRPLANs" EntityType="Self.AIRPLAN" />
+    <EntitySet Name="AIRPORTs" EntityType="Self.AIRPORT" />
+    <EntitySet Name="PASSENGER1" EntityType="Self.PASSENGER1" />
+    <EntitySet Name="PILOTS" EntityType="Self.PILOT" />
+    <AssociationSet Name="FK__AIRPLAN__ID_AP__3C69FB99" Association="Self.FK__AIRPLAN__ID_AP__3C69FB99">
+      <End Role="AIRPORT" EntitySet="AIRPORTs" />
+      <End Role="AIRPLAN" EntitySet="AIRPLANs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AIRPLAN__ID_P__3D5E1FD2" Association="Self.FK__AIRPLAN__ID_P__3D5E1FD2">
+      <End Role="PILOTS" EntitySet="PILOTS" />
+      <End Role="AIRPLAN" EntitySet="AIRPLANs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PILOTS__ID_AP__398D8EEE" Association="Self.FK__PILOTS__ID_AP__398D8EEE">
+      <End Role="AIRPORT" EntitySet="AIRPORTs" />
+      <End Role="PILOTS" EntitySet="PILOTS" />
+    </AssociationSet>
+    <EntitySet Name="FLIGHTS" EntityType="AIRPROTModel.FLIGHT" />
+    <AssociationSet Name="FK__FLIGHTS__ID_A__403A8C7D" Association="AIRPROTModel.FK__FLIGHTS__ID_A__403A8C7D">
+      <End Role="AIRPLAN" EntitySet="AIRPLANs" />
+      <End Role="FLIGHT" EntitySet="FLIGHTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PASSENGER1__ID_F__4316F928" Association="AIRPROTModel.FK__PASSENGER1__ID_F__4316F928">
+      <End Role="FLIGHT" EntitySet="FLIGHTS" />
+      <End Role="PASSENGER1" EntitySet="PASSENGER1" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="FLIGHT">
+    <Key>
+      <PropertyRef Name="ID_F" />
+    </Key>
+    <Property Name="ID_F" Type="Int32" Nullable="false" />
+    <Property Name="ID_A" Type="Int32" />
+    <Property Name="DATE_D" Type="DateTime" Precision="0" />
+    <Property Name="DATE_A" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="AIRPLAN" Relationship="AIRPROTModel.FK__FLIGHTS__ID_A__403A8C7D" FromRole="FLIGHT" ToRole="AIRPLAN" />
+    <NavigationProperty Name="PASSENGER1" Relationship="AIRPROTModel.FK__PASSENGER1__ID_F__4316F928" FromRole="FLIGHT" ToRole="PASSENGER1" />
+  </EntityType>
+  <Association Name="FK__FLIGHTS__ID_A__403A8C7D">
+    <End Type="AIRPROTModel.AIRPLAN" Role="AIRPLAN" Multiplicity="0..1" />
+    <End Type="AIRPROTModel.FLIGHT" Role="FLIGHT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AIRPLAN">
+        <PropertyRef Name="ID_A" />
+      </Principal>
+      <Dependent Role="FLIGHT">
+        <PropertyRef Name="ID_A" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PASSENGER1__ID_F__4316F928">
+    <End Type="AIRPROTModel.FLIGHT" Role="FLIGHT" Multiplicity="0..1" />
+    <End Type="AIRPROTModel.PASSENGER1" Role="PASSENGER1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FLIGHT">
+        <PropertyRef Name="ID_F" />
+      </Principal>
+      <Dependent Role="PASSENGER1">
+        <PropertyRef Name="ID_F" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

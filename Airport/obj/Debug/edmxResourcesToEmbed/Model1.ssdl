@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AIRPROTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ADMINLOG_">
+    <Key>
+      <PropertyRef Name="USERNAME_" />
+    </Key>
+    <Property Name="USERNAME_" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="PASSWORD_" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="AIRPLAN">
+    <Key>
+      <PropertyRef Name="ID_A" />
+    </Key>
+    <Property Name="ID_A" Type="int" Nullable="false" />
+    <Property Name="NAME_A" Type="varchar" MaxLength="100" />
+    <Property Name="MODEL" Type="varchar" MaxLength="100" />
+    <Property Name="ID_AP" Type="int" />
+    <Property Name="ID_P" Type="int" />
+  </EntityType>
+  <EntityType Name="AIRPORT">
+    <Key>
+      <PropertyRef Name="ID_AP" />
+    </Key>
+    <Property Name="ID_AP" Type="int" Nullable="false" />
+    <Property Name="NAME_AP" Type="varchar" MaxLength="100" />
+    <Property Name="ADDRES" Type="varchar" MaxLength="100" />
+    <Property Name="COUNTRY" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="FLIGHTS">
+    <Key>
+      <PropertyRef Name="ID_F" />
+    </Key>
+    <Property Name="ID_F" Type="int" Nullable="false" />
+    <Property Name="ID_A" Type="int" />
+    <Property Name="DATE_D" Type="date" />
+    <Property Name="DATE_A" Type="date" />
+  </EntityType>
+  <EntityType Name="PASSENGER1">
+    <Key>
+      <PropertyRef Name="ID_PA" />
+    </Key>
+    <Property Name="ID_PA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME_" Type="varchar" MaxLength="100" />
+    <Property Name="AGE" Type="int" />
+    <Property Name="GENDER" Type="varchar" MaxLength="50" />
+    <Property Name="PHONE" Type="int" />
+    <Property Name="ID_F" Type="int" />
+  </EntityType>
+  <EntityType Name="PILOTS">
+    <Key>
+      <PropertyRef Name="ID_P" />
+    </Key>
+    <Property Name="ID_P" Type="int" Nullable="false" />
+    <Property Name="NAME_F" Type="varchar" MaxLength="100" />
+    <Property Name="NAME_L" Type="varchar" MaxLength="100" />
+    <Property Name="DOF" Type="date" />
+    <Property Name="EMPDATE" Type="date" />
+    <Property Name="ID_AP" Type="int" />
+  </EntityType>
+  <Association Name="FK__AIRPLAN__ID_AP__3C69FB99">
+    <End Role="AIRPORT" Type="Self.AIRPORT" Multiplicity="0..1" />
+    <End Role="AIRPLAN" Type="Self.AIRPLAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AIRPORT">
+        <PropertyRef Name="ID_AP" />
+      </Principal>
+      <Dependent Role="AIRPLAN">
+        <PropertyRef Name="ID_AP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AIRPLAN__ID_P__3D5E1FD2">
+    <End Role="PILOTS" Type="Self.PILOTS" Multiplicity="0..1" />
+    <End Role="AIRPLAN" Type="Self.AIRPLAN" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PILOTS">
+        <PropertyRef Name="ID_P" />
+      </Principal>
+      <Dependent Role="AIRPLAN">
+        <PropertyRef Name="ID_P" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__FLIGHTS__ID_A__403A8C7D">
+    <End Role="AIRPLAN" Type="Self.AIRPLAN" Multiplicity="0..1" />
+    <End Role="FLIGHTS" Type="Self.FLIGHTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AIRPLAN">
+        <PropertyRef Name="ID_A" />
+      </Principal>
+      <Dependent Role="FLIGHTS">
+        <PropertyRef Name="ID_A" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PASSENGER1__ID_F__4316F928">
+    <End Role="FLIGHTS" Type="Self.FLIGHTS" Multiplicity="0..1" />
+    <End Role="PASSENGER1" Type="Self.PASSENGER1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FLIGHTS">
+        <PropertyRef Name="ID_F" />
+      </Principal>
+      <Dependent Role="PASSENGER1">
+        <PropertyRef Name="ID_F" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PILOTS__ID_AP__398D8EEE">
+    <End Role="AIRPORT" Type="Self.AIRPORT" Multiplicity="0..1" />
+    <End Role="PILOTS" Type="Self.PILOTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AIRPORT">
+        <PropertyRef Name="ID_AP" />
+      </Principal>
+      <Dependent Role="PILOTS">
+        <PropertyRef Name="ID_AP" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AIRPROTModelStoreContainer">
+    <EntitySet Name="ADMINLOG_" EntityType="Self.ADMINLOG_" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AIRPLAN" EntityType="Self.AIRPLAN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AIRPORT" EntityType="Self.AIRPORT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FLIGHTS" EntityType="Self.FLIGHTS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PASSENGER1" EntityType="Self.PASSENGER1" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PILOTS" EntityType="Self.PILOTS" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__AIRPLAN__ID_AP__3C69FB99" Association="Self.FK__AIRPLAN__ID_AP__3C69FB99">
+      <End Role="AIRPORT" EntitySet="AIRPORT" />
+      <End Role="AIRPLAN" EntitySet="AIRPLAN" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AIRPLAN__ID_P__3D5E1FD2" Association="Self.FK__AIRPLAN__ID_P__3D5E1FD2">
+      <End Role="PILOTS" EntitySet="PILOTS" />
+      <End Role="AIRPLAN" EntitySet="AIRPLAN" />
+    </AssociationSet>
+    <AssociationSet Name="FK__FLIGHTS__ID_A__403A8C7D" Association="Self.FK__FLIGHTS__ID_A__403A8C7D">
+      <End Role="AIRPLAN" EntitySet="AIRPLAN" />
+      <End Role="FLIGHTS" EntitySet="FLIGHTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PASSENGER1__ID_F__4316F928" Association="Self.FK__PASSENGER1__ID_F__4316F928">
+      <End Role="FLIGHTS" EntitySet="FLIGHTS" />
+      <End Role="PASSENGER1" EntitySet="PASSENGER1" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PILOTS__ID_AP__398D8EEE" Association="Self.FK__PILOTS__ID_AP__398D8EEE">
+      <End Role="AIRPORT" EntitySet="AIRPORT" />
+      <End Role="PILOTS" EntitySet="PILOTS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

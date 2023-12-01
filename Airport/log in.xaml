@@ -1,0 +1,34 @@
+﻿<Page x:Class="Airport.log_in"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Airport"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="log_in">
+
+    <Grid Background="Beige">
+        <Label Content="Log in" FontSize="45" FontWeight="Bold" Margin="325,51,325,328" />
+        <Label Content="Password :" Style="{StaticResource ABDO}" Margin="35,220,625,180" />
+        <Label Content="Username :" Style="{StaticResource ABDO}" Margin="28,155,630,245" />
+
+        <ComboBox Name="combo" Height="50" Width="200" Margin="42,72,558,328">
+            
+            <ComboBoxItem>
+                Admin Flight
+            </ComboBoxItem>
+            <ComboBoxItem>
+                Admin Passenger
+            </ComboBoxItem>
+            
+        </ComboBox>
+        <Button Content="Forget password" Style="{StaticResource but}" Margin="568,77,72,328" Width="160" Height="45" Click="Button_Click_3"/>
+
+        <TextBox Height="40" Width="450" Margin="175,160,175,250" Name="username"></TextBox>
+        <TextBox Height="40" Width="450" Margin="175,225,175,185" Name="password"></TextBox>
+        <Button Content="Log in" Style="{StaticResource but}" Margin="212,298,488,117" Click="Button_Click_2"/>
+        <Button Content="Sign Up" Style="{StaticResource but}" Margin="457,298,243,117" Click="Button_Click_1"/>
+
+    </Grid>
+</Page>
