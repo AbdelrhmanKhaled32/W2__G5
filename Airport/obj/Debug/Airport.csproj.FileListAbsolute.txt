@@ -1,0 +1,36 @@
+C:\Users\dell\source\repos\Airport\Airport\bin\Debug\Airport.exe.config
+C:\Users\dell\source\repos\Airport\Airport\bin\Debug\Airport.exe
+C:\Users\dell\source\repos\Airport\Airport\bin\Debug\Airport.pdb
+C:\Users\dell\source\repos\Airport\Airport\obj\Debug\Airport.csproj.AssemblyReference.cache
+C:\Users\dell\source\repos\Airport\Airport\obj\Debug\Admin.g.cs
+C:\Users\dell\source\repos\Airport\Airport\obj\Debug\log in.g.cs
+C:\Users\dell\source\repos\Airport\Airport\obj\Debug\MainWindow.g.cs
+C:\Users\dell\source\repos\Airport\Airport\obj\Debug\passenger.g.cs
+C:\Users\dell\source\repos\Airport\Airport\obj\Debug\registration.g.cs
+C:\Users\dell\source\repos\Airport\Airport\obj\Debug\App.g.cs
+C:\Users\dell\source\repos\Airport\Airport\obj\Debug\Airport_MarkupCompile.cache
+C:\Users\dell\source\repos\Airport\Airport\obj\Debug\Airport_MarkupCompile.lref
+C:\Users\dell\source\repos\Airport\Airport\obj\Debug\Admin.baml
+C:\Users\dell\source\repos\Airport\Airport\obj\Debug\log in.baml
+C:\Users\dell\source\repos\Airport\Airport\obj\Debug\MainWindow.baml
+C:\Users\dell\source\repos\Airport\Airport\obj\Debug\passenger.baml
+C:\Users\dell\source\repos\Airport\Airport\obj\Debug\registration.baml
+C:\Users\dell\source\repos\Airport\Airport\obj\Debug\Airport.g.resources
+C:\Users\dell\source\repos\Airport\Airport\obj\Debug\Airport.Properties.Resources.resources
+C:\Users\dell\source\repos\Airport\Airport\obj\Debug\Airport.csproj.GenerateResource.cache
+C:\Users\dell\source\repos\Airport\Airport\obj\Debug\Airport.csproj.CoreCompileInputs.cache
+C:\Users\dell\source\repos\Airport\Airport\obj\Debug\Airport.exe
+C:\Users\dell\source\repos\Airport\Airport\obj\Debug\Airport.pdb
+C:\Users\dell\source\repos\Airport\Airport\obj\Debug\App.baml
+C:\Users\dell\source\repos\Airport\Airport\obj\Debug\adminpassenger.g.cs
+C:\Users\dell\source\repos\Airport\Airport\obj\Debug\adminpassenger.baml
+C:\Users\dell\source\repos\Airport\Airport\obj\Debug\sign upxaml.g.cs
+C:\Users\dell\source\repos\Airport\Airport\obj\Debug\sign upxaml.baml
+C:\Users\dell\source\repos\Airport\Airport\bin\Debug\EntityFramework.dll
+C:\Users\dell\source\repos\Airport\Airport\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\dell\source\repos\Airport\Airport\bin\Debug\EntityFramework.xml
+C:\Users\dell\source\repos\Airport\Airport\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\dell\source\repos\Airport\Airport\obj\Debug\Airport_Content.g.cs
+C:\Users\dell\source\repos\Airport\Airport\obj\Debug\Airport.csproj.CopyComplete
+C:\Users\dell\source\repos\Airport\Airport\obj\Debug\forgetpassword.g.cs
+C:\Users\dell\source\repos\Airport\Airport\obj\Debug\forgetpassword.baml
