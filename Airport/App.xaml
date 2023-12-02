@@ -11,7 +11,7 @@
         </Style>
         
         <Style x:Key="text" TargetType="TextBox">
-            <Setter Property="FontSize" Value="25"></Setter>
+            <Setter Property="FontSize" Value="15"></Setter>
             <Setter  Property="FontWeight" Value="Bold"></Setter>
             <Setter Property="Height" Value="25"/>
             <Setter Property="Width" Value="350"/>

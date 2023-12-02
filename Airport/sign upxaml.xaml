@@ -8,18 +8,22 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="sign_upxaml" Background="Beige">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="43*"/>
+            <ColumnDefinition Width="157*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
             <RowDefinition  />
         </Grid.RowDefinitions>
-        <Label Content="Sign Up" FontSize="45" FontWeight="Bold" Margin="304,51,304,25" Grid.Row="0"/>
-        <Label Content="Username :" Style="{StaticResource ABDO}" Margin="28,5,630,80" Grid.Row="1" />
-        <Label Content="Password :" Style="{StaticResource ABDO}" Margin="37,70,625,35" Grid.Row="1" />
+        <Label Content="Sign Up" FontSize="45" FontWeight="Bold" Margin="135,51,304,25" Grid.Row="0" Grid.Column="1"/>
+        <Label Content="Username :" Style="{StaticResource ABDO}" Margin="15,14,15,86" Grid.Row="1" />
+        <Label Content="Password :" Style="{StaticResource ABDO}" Margin="24,72,10,28" Grid.Row="1" />
 
-        <TextBox Width="450" Style="{StaticResource text}" Margin="175,10,175,88" Name="username" Grid.Row="1"/>
-        <TextBox Width="450" Style="{StaticResource text}" Margin="175,75,175,30" Name="password" Grid.Row="1"/>
-        <Button Content="Sign Up" Style="{StaticResource but}" Margin="350,10,350,105" Click="Button_Click" Grid.Row="2"/>
+        <TextBox Width="NaN" Style="{StaticResource text}" Margin="6,24,172,101" Name="username" Grid.Row="1" Grid.Column="1"/>
+        <TextBox Width="NaN" Style="{StaticResource text}" Margin="6,85,172,40" Name="password" Grid.Row="1" Grid.Column="1"/>
+        <Button Content="Sign Up" Style="{StaticResource but}" Margin="181,10,347,105" Click="Button_Click" Grid.Row="2" Grid.Column="1"/>
 
     </Grid>
 </Page>

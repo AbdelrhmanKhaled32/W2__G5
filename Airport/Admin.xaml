@@ -24,5 +24,6 @@
         <Label Content="Reboot time :" Style="{StaticResource ABDO}" Margin="150,66,475,384"/>
         <Label Content="Arrive time :" Style="{StaticResource ABDO}" Margin="163,110,475,340"/>
         <Label Content="Plane number :" Style="{StaticResource ABDO}"  Margin="131,158,523,292"/>
+        <Grid/>
     </Grid>
 </Page>
